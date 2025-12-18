@@ -37,6 +37,14 @@ const Header = () => {
             <div className="hidden md:flex items-center gap-6">
               {!user ? (
                 <>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={toggleTheme}
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                  </Button>
                   <Link to="/auth">
                     <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
                       Features
