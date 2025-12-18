@@ -10,7 +10,7 @@ import { ConfirmDialog } from "./confirm-dialog";
 
 const LinkCard = ({ url = [], fetchUrls }) => {
   const [openDelete, setOpenDelete] = useState(false);
-  const webUrl = import.meta.env.VITE_URL+"/r";
+  const webUrl = import.meta.env.VITE_URL + "/r";
   const downloadImage = () => {
     const imageUrl = url?.qr;
     const fileName = url?.title; // Desired file name for the downloaded image
@@ -83,7 +83,7 @@ const LinkCard = ({ url = [], fetchUrls }) => {
         onConfirm={() =>
           fnDelete().then(() => {
             setOpenDelete(false);
-
+            fetchUrls();
           })
         }
       />

@@ -8,6 +8,8 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Trash } from "lucide-react";
+import { BeatLoader } from "react-spinners";
 
 
 export function ConfirmDialog({
@@ -38,10 +40,21 @@ export function ConfirmDialog({
                     <AlertDialogAction
                         onClick={onConfirm}
                         disabled={loading}
-                        className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                        className="bg-destructive text-destructive-foreground hover:bg-destructive/90 flex items-center gap-2"
                     >
-                        {loading ? "Deleting..." : confirmText}
+                        {loading ? (
+                            <>
+                                <BeatLoader size={5} color="white" />
+                                <span>Deleting...</span>
+                            </>
+                        ) : (
+                            <>
+                                <Trash className="h-4 w-4" />
+                                <span>{confirmText}</span>
+                            </>
+                        )}
                     </AlertDialogAction>
+
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
